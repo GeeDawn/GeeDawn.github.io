@@ -2,7 +2,7 @@
 /* 将上面的 myFont 改成你自己的字体名称即可*/
 @font-face{ 
     font-family: 'girl';
-    src: url('https://fonts.googleapis.com/css2?family=Birthstone&family=Estonia&family=Pinyon+Script&display=swap');
+    src: url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
 }
 
 .diy-font{
