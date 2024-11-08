@@ -404,10 +404,61 @@
             </div>
             <div class="tag-chips">
                 
+                
+                <a href="/tags/Project/" title="Project: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Project" style="background-color: #F9EBEA;">Project
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Learning-Notes/" title="Learning-Notes: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Learning-Notes" style="background-color: #F5EEF8;">Learning-Notes
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Beginner/" title="Beginner: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Beginner" style="background-color: #D5F5E3;">Beginner
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
 </div>
+
+    
+    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
+
+    $('#tag-wordcloud').jQCloud([{"text":"Project","weight":1,"link":"/tags/Project/"},{"text":"Learning-Notes","weight":1,"link":"/tags/Learning-Notes/"},{"text":"Beginner","weight":1,"link":"/tags/Beginner/"}], {
+        autoResize: true
+    });
+</script>
 
     
 
