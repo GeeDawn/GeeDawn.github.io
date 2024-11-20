@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, McGee-Lee&#39;s Blog">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="Basic of Program Design Ⅳ, McGee-Lee&#39;s Blog">
+    <meta name="description" content="Knowledge isn’t free. You have to pay attention.
+第六周“兔子数列”的C++参考程序1// 兔子数列，按小兔子、大兔子分别递推
+#include &amp;lt;iostream&gt;
+using nam">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | McGee-Lee&#39;s Blog</title>
+    <title>Basic of Program Design Ⅳ | McGee-Lee&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -346,7 +349,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Basic of Program Design Ⅳ</h1>
                 </div>
             </div>
         </div>
@@ -368,25 +371,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Beginner/">
-                                <span class="chip bg-color">Beginner</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Diary/" class="post-category">
-                                Diary
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -395,7 +385,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2024-11-06
+                    2024-11-18
                 </div>
                 
 
@@ -419,55 +409,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <p>Knowledge isn’t free. You have to pay attention.</p>
+<h4 id="第六周“兔子数列”的C-参考程序1"><a href="#第六周“兔子数列”的C-参考程序1" class="headerlink" title="第六周“兔子数列”的C++参考程序1"></a>第六周“兔子数列”的C++参考程序1</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// 兔子数列，按小兔子、大兔子分别递推</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+	cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+	<span class="token comment">// 定义数组</span>
+	<span class="token keyword">int</span> small<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">,</span> big<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token comment">// 设定初值</span>
+	small<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	big<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token comment">// 递推</span>
+	<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		small<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> big<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+		big<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> small<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> big<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token comment">// 输出总数</span>
+	cout <span class="token operator">&lt;&lt;</span> <span class="token string">"第"</span> <span class="token operator">&lt;&lt;</span> n <span class="token operator">&lt;&lt;</span> <span class="token string">"个月的兔子总数是"</span>
+		<span class="token operator">&lt;&lt;</span> small<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> big<span class="token punctuation">[</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>第六周“兔子数列”的C++参考程序2<br>&#x2F;&#x2F; 兔子数列，按兔子总数递推<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    int n;<br>    cin &gt;&gt; n;<br>    &#x2F;&#x2F; 定义数组<br>    int total[12];<br>    &#x2F;&#x2F; 设定初值<br>    total[0] &#x3D; 1;<br>    total[1] &#x3D; 1;<br>    &#x2F;&#x2F; 递推<br>    for (int i &#x3D; 2; i &lt; n; i++)<br>    {<br>        total[i] &#x3D; total[i - 2] + total[i - 1];<br>    }<br>    &#x2F;&#x2F; 输出总数<br>    cout &lt;&lt; “第” &lt;&lt; n &lt;&lt; “个月的兔子总数是”<br>        &lt;&lt; total[n - 1] &lt;&lt; endl;<br>    return 0;<br>}<br>第六周“兔子数列”的C++参考程序3<br>&#x2F;&#x2F; 兔子数列，按小兔子、大兔子分别递推，不用数组<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    int n;<br>    cin &gt;&gt; n;<br>    int dang_yue;<br>    &#x2F;&#x2F; 设定初值<br>    int qian_yue &#x3D; 1;<br>    int shang_yue &#x3D; 1;<br>    &#x2F;&#x2F; 递推<br>    for (int i &#x3D; 2; i &lt; n; i++)<br>    {<br>        dang_yue &#x3D; qian_yue + shang_yue;<br>        qian_yue &#x3D; shang_yue;<br>        shang_yue &#x3D; dang_yue;<br>    }<br>    &#x2F;&#x2F; 输出总数<br>    cout &lt;&lt; “第” &lt;&lt; n &lt;&lt; “个月的兔子总数是”<br>        &lt;&lt; dang_yue &lt;&lt; endl;<br>    return 0;<br>}<br>第六周“分鱼”的C++参考程序1<br>&#x2F;&#x2F; 分鱼问题，从A开始递推，未优化<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    &#x2F;&#x2F; 定义数组<br>    int num[5];<br>    &#x2F;&#x2F; 枚举num[0]<br>    for (num[0] &#x3D; 1; ; num[0]++)<br>    {<br>        if (num[0] % 5 !&#x3D; 1)<br>            continue;<br>        num[1] &#x3D; (num[0] - 1) &#x2F; 5 * 4;<br>        if (num[1] % 5 !&#x3D; 1)<br>            continue;<br>        num[2] &#x3D; (num[1] - 1) &#x2F; 5 * 4;<br>        if (num[2] % 5 !&#x3D; 1)<br>            continue;<br>        num[3] &#x3D; (num[2] - 1) &#x2F; 5 * 4;<br>        if (num[3] % 5 !&#x3D; 1)<br>            continue;<br>        num[4] &#x3D; (num[3] - 1) &#x2F; 5 * 4;<br>        if (num[4] % 5 !&#x3D; 1)<br>            continue;<br>        break;<br>    }<br>    &#x2F;&#x2F; 输出答案<br>    for (int i &#x3D; 0; i &lt; 5; i++)<br>        cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>    return 0;<br>}<br>第六周“分鱼”的C++参考程序2<br>&#x2F;&#x2F; 分鱼问题，从A开始递推，使用for循环简化中间计算<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    &#x2F;&#x2F; 定义数组<br>    int num[5];<br>    &#x2F;&#x2F; 枚举num[0]<br>    for (num[0] &#x3D; 1; ; num[0]++)<br>    {<br>        if (num[0] % 5 !&#x3D; 1)<br>            continue;<br>        int i &#x3D; 0;<br>        for (; i &lt; 4; ++i)<br>        {<br>            num[i + 1] &#x3D; (num[i] - 1) &#x2F; 5 * 4;<br>            if (num[i + 1] % 5 !&#x3D; 1)<br>                break;<br>        }<br>        if (i &gt;&#x3D; 4) &#x2F;&#x2F; 已找到答案<br>            break;<br>    }<br>    &#x2F;&#x2F; 输出答案<br>    for (int i &#x3D; 0; i &lt; 5; i++)<br>        cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>    return 0;<br>}<br>第六周“分鱼”的C++参考程序3<br>&#x2F;&#x2F; 分鱼问题，从A开始递推，使用for循环简化中间计算，优化枚举<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    int num[5];<br>    for (num[0] &#x3D; 16; ; num[0] +&#x3D; 5)<br>    {<br>        int i &#x3D; 0;<br>        for (; i &lt; 4; ++i)<br>        {<br>            num[i + 1] &#x3D; num[i] &#x2F; 5 * 4; &#x2F;&#x2F; 整数除法，可以不减1就直接除以5<br>            if (num[i + 1] % 5 !&#x3D; 1)<br>                break;<br>        }<br>        if (i &gt;&#x3D; 4) &#x2F;&#x2F; 已找到答案<br>            break;<br>    }<br>    for (int i &#x3D; 0; i &lt; 5; ++i)<br>        cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>    return 0;<br>}<br>第六周“分鱼”的C++参考程序4<br>&#x2F;&#x2F; 分鱼问题，从E开始递推<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    &#x2F;&#x2F; 定义数组<br>    int num[5];<br>    &#x2F;&#x2F; 从6开始枚举num[4]<br>    for (num[4] &#x3D; 6; ; num[4] +&#x3D; 5)<br>    {<br>        if (num[4] % 4 !&#x3D; 0)<br>            continue;<br>        num[3] &#x3D; num[4] &#x2F; 4 * 5 + 1;<br>        if (num[3] % 4 !&#x3D; 0)<br>            continue;<br>        num[2] &#x3D; num[3] &#x2F; 4 * 5 + 1;<br>        if (num[2] % 4 !&#x3D; 0)<br>            continue;<br>        num[1] &#x3D; num[2] &#x2F; 4 * 5 + 1;<br>        if (num[1] % 4 !&#x3D; 0)<br>            continue;<br>        num[0] &#x3D; num[1] &#x2F; 4 * 5 + 1;<br>        break;<br>    }<br>    &#x2F;&#x2F; 输出答案<br>    for (int i &#x3D; 0; i &lt; 5; ++i)<br>        cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>    return 0;<br>}<br>第六周“分鱼”的C++参考程序5<br>&#x2F;&#x2F; 分鱼问题，从E开始递推，使用for循环简化中间计算<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    &#x2F;&#x2F; 定义数组<br>    int num[5];<br>    &#x2F;&#x2F; 从6开始枚举num[4]<br>    for (num[4] &#x3D; 6; ; num[4] +&#x3D; 5)<br>    {<br>        int i &#x3D; 4;<br>        for (; i &gt;&#x3D; 1; –i)<br>        {<br>            if (num[i] % 4 !&#x3D; 0)<br>                break;<br>            num[i - 1] &#x3D; num[i] &#x2F; 4 * 5 + 1;<br>        }<br>        if (i &#x3D;&#x3D; 0) &#x2F;&#x2F; 已找到答案<br>            break;<br>    }<br>    &#x2F;&#x2F; 输出答案<br>    for (int i &#x3D; 0; i &lt; 5; ++i)<br>        cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>    return 0;<br>}<br>第六周“分鱼”的C++参考程序6<br>&#x2F;&#x2F; 分鱼问题，从E开始递推，使用for循环简化中间计算，优化枚举<br>#include <iostream><br>using namespace std;<br>int main()<br>{<br>    int num[5];<br>    for (num[4] &#x3D; 16; ; num[4] +&#x3D; 20)<br>    {<br>        int i &#x3D; 3;<br>        for (; i &gt;&#x3D; 1; –i)<br>        {<br>            num[i] &#x3D; num[i + 1] &#x2F; 4 * 5 + 1;<br>            if (num[i] % 4 !&#x3D; 0)<br>                break;<br>        }<br>        if (i &#x3D;&#x3D; 0) &#x2F;&#x2F; 已找到答案<br>            break;<br>    }<br>    num[0] &#x3D; num[1] &#x2F; 4 * 5 + 1;<br>    for (int i &#x3D; 0; i &lt; 5; ++i)<br>        cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>    return 0;<br>}<br>第六周“橱窗插花”的C++参考程序1<br>&#x2F;&#x2F; 橱窗插花问题，按二进制枚举<br>#include <iostream><br>using namespace std;<br>const int V &#x3D; 5;<br>const int F &#x3D; 3;<br>&#x2F;&#x2F; 把num表示为二进制<br>void ToBinary(int num, int binary[V])<br>{<br>    for (int i &#x3D; 0; i &lt; V; i++)<br>    {<br>        binary[i] &#x3D; num &amp; 1; &#x2F;&#x2F; 取最低位<br>        num &#x3D; num &gt;&gt; 1; &#x2F;&#x2F; 右移1位<br>    }<br>}<br>&#x2F;&#x2F; 计算V位二进制中1的个数<br>int Count1(int binary[V])<br>{<br>    int count &#x3D; 0;<br>    for (int i &#x3D; 0; i &lt; V; i++)<br>        count +&#x3D; binary[i];<br>    return count;<br>}<br>int main()<br>{<br>    &#x2F;&#x2F; 定义美感数组<br>    int beauty[V][F] &#x3D; { {7, 5, -21}, {23, 21, 5}, {-5, -4, -4}, {-24, 10, -20}, {16, 23, 20} };<br>    &#x2F;&#x2F; 定义最大美感得分和、相应方案<br>    int best_beauty &#x3D; 0, best_put &#x3D; 0;<br>    &#x2F;&#x2F; 枚举0<del>2^V-1<br>    for (int i &#x3D; 0; i &lt; (1 &lt;&lt; V); i++)<br>    {<br>        &#x2F;&#x2F; 计算具体插花方案<br>        int binary[V] &#x3D; { 0 };<br>        ToBinary(i, binary);<br>        if (Count1(binary) !&#x3D; F) &#x2F;&#x2F; 不是合法方案<br>            continue;<br>        &#x2F;&#x2F; 计算美感得分和<br>        int sum_beauty &#x3D; 0;<br>        for (int vase &#x3D; 0, flower &#x3D; 0; vase &lt; V; vase++)<br>        {<br>            if (binary[vase] &#x3D;&#x3D; 1) &#x2F;&#x2F; 插了花<br>            {<br>                sum_beauty +&#x3D; beauty[vase][flower];<br>                flower++;<br>            }<br>        }<br>        &#x2F;&#x2F; 维护最大美感得分和、相应方案<br>        if (sum_beauty &gt; best_beauty)<br>        {<br>            best_beauty &#x3D; sum_beauty;<br>            best_put &#x3D; i;<br>        }<br>    }<br>    &#x2F;&#x2F; 输出答案<br>    cout &lt;&lt; “最大美感得分和：” &lt;&lt; best_beauty &lt;&lt; endl;<br>    cout &lt;&lt; “插花方法：”;<br>    int best_binary[V] &#x3D; { 0 };<br>    ToBinary(best_put, best_binary);<br>    for (int vase &#x3D; 0, flower &#x3D; 1; vase &lt; V; vase++)<br>        if (best_binary[vase] &#x3D;&#x3D; 1)<br>        {<br>            cout &lt;&lt; flower;<br>            flower++;<br>        }<br>        else<br>            cout &lt;&lt; 0;<br>    return 0;<br>}<br>第六周“橱窗插花”的C++参考程序2<br>&#x2F;&#x2F; 橱窗插花问题，按二进制枚举，记录部分美感和<br>#include <iostream><br>using namespace std;<br>const int V &#x3D; 5;<br>const int F &#x3D; 3;<br>&#x2F;&#x2F; 把num表示为二进制<br>void ToBinary(int num, int binary[V])<br>{<br>    for (int i &#x3D; 0; i &lt; V; i++)<br>    {<br>        binary[i] &#x3D; num &amp; 1; &#x2F;&#x2F; 取最低位<br>        num &#x3D; num &gt;&gt; 1; &#x2F;&#x2F; 右移1位<br>    }<br>}<br>&#x2F;&#x2F; 计算V位二进制中1的个数和最高位1的位置<br>int Count1(int binary[V], int&amp; high)<br>{<br>    int count &#x3D; 0;<br>    high &#x3D; -1;<br>    for (int i &#x3D; 0; i &lt; V; i++)<br>        if (binary[i] &#x3D;&#x3D; 1)<br>        {<br>            high &#x3D; i;<br>            count++;<br>        }<br>    return count;<br>}<br>int main()<br>{<br>    &#x2F;&#x2F; 定义美感数组<br>    int beauty[V][F] &#x3D; { {7, 5, -21}, {23, 21, 5}, {-5, -4, -4}, {-24, 10, -20}, {16, 23, 20} };<br>    &#x2F;&#x2F; 定义部分美感和数组，设定初值<br>    int partial_sum[1 &lt;&lt; V] &#x3D; { 0 };<br>    &#x2F;&#x2F; 定义最大美感得分和、相应方案<br>    int best_beauty &#x3D; 0, best_put &#x3D; 0;<br>    &#x2F;&#x2F; 枚举1</del>2^V-1<br>    for (int i &#x3D; 1; i &lt; (1 &lt;&lt; V); i++)<br>    {<br>        &#x2F;&#x2F; 计算部分插花方案<br>        int binary[V] &#x3D; { 0 };<br>        ToBinary(i, binary);<br>        int high;<br>        int flowers &#x3D; Count1(binary, high);<br>        if (flowers &gt; F) &#x2F;&#x2F; 不是合法的部分方案<br>            continue;<br>        &#x2F;&#x2F; 递推部分美感和<br>        partial_sum[i] &#x3D; beauty[high][flowers - 1] + partial_sum[i - (1 &lt;&lt; high)];<br>        &#x2F;&#x2F; 维护最大美感得分和、相应方案<br>        if (flowers &#x3D;&#x3D; F &amp;&amp; partial_sum[i] &gt; best_beauty)<br>        {<br>            best_beauty &#x3D; partial_sum[i];<br>            best_put &#x3D; i;<br>        }<br>    }<br>    &#x2F;&#x2F; 输出答案<br>    cout &lt;&lt; “最大美感得分和：” &lt;&lt; best_beauty &lt;&lt; endl;<br>    cout &lt;&lt; “插花方法：”;<br>    int best_binary[V] &#x3D; { 0 };<br>    ToBinary(best_put, best_binary);<br>    for (int vase &#x3D; 0, flower &#x3D; 1; vase &lt; V; vase++)<br>        if (best_binary[vase] &#x3D;&#x3D; 1)<br>        {<br>            cout &lt;&lt; flower;<br>            flower++;<br>        }<br>        else<br>            cout &lt;&lt; 0;<br>    return 0;<br>}<br>第六周“橱窗插花”的C++参考程序3<br>&#x2F;&#x2F; 橱窗插花问题，动态规划<br>&#x2F;&#x2F; 记录每个状态的最优决策，最优策略需回溯<br>#include <iostream><br>using namespace std;<br>const int V &#x3D; 5;<br>const int F &#x3D; 3;<br>int main()<br>{<br>    &#x2F;&#x2F; 定义美感数组<br>    int beauty[V][F] &#x3D; { {7, 5, -21}, {23, 21, 5}, {-5, -4, -4}, {-24, 10, -20}, {16, 23, 20} };<br>    &#x2F;&#x2F; 定义最优部分美感和数组，设定递推初值<br>    int best_partial[V + 1][F + 1] &#x3D; { {0} };<br>    &#x2F;&#x2F; 定义记录是否插花的数组<br>    bool put[V + 1][F + 1] &#x3D; { {false} };<br>    &#x2F;&#x2F; 按m个花瓶插n朵花递推<br>    for (int m &#x3D; 1; m &lt;&#x3D; V; m++)<br>        for (int n &#x3D; 1; n &lt;&#x3D; m &amp;&amp; n &lt;&#x3D; F; n++)<br>        {<br>            &#x2F;&#x2F; 新花瓶插花<br>            best_partial[m][n] &#x3D; best_partial[m - 1][n - 1] + beauty[m - 1][n - 1];<br>            put[m][n] &#x3D; true;<br>            if (n &lt; m &amp;&amp; best_partial[m][n] &lt; best_partial[m - 1][n]) &#x2F;&#x2F; 新花瓶不插花更优<br>            {<br>                best_partial[m][n] &#x3D; best_partial[m - 1][n];<br>                put[m][n] &#x3D; false;<br>            }<br>        }<br>    &#x2F;&#x2F; 输出答案<br>    cout &lt;&lt; “最大美感得分和：” &lt;&lt; best_partial[V][F] &lt;&lt; endl;<br>    cout &lt;&lt; “插花方法：”;<br>    for (int m &#x3D; V, n &#x3D; F; m &gt;&#x3D; 1; m–)<br>        if (put[m][n])<br>        {<br>            cout &lt;&lt; n;<br>            n–;<br>        }<br>        else<br>        {<br>            cout &lt;&lt; ‘0’;<br>        }<br>    return 0;<br>}<br>第六周“橱窗插花”的C++参考程序4<br>&#x2F;&#x2F; 橱窗插花问题，动态规划，<br>&#x2F;&#x2F; 记录当前子问题的最优策略，无需回溯<br>#include <iostream><br>using namespace std;<br>const int V &#x3D; 5;<br>const int F &#x3D; 3;<br>&#x2F;&#x2F; 把num表示为二进制<br>void ToBinary(int num, int binary[V])<br>{<br>    for (int i &#x3D; 0; i &lt; V; i++)<br>    {<br>        binary[i] &#x3D; num &amp; 1; &#x2F;&#x2F; 取最低位<br>        num &#x3D; num &gt;&gt; 1; &#x2F;&#x2F; 右移1位<br>    }<br>}<br>int main()<br>{<br>    &#x2F;&#x2F; 定义美感数组<br>    int beauty[V][F] &#x3D; { {7, 5, -21}, {23, 21, 5}, {-5, -4, -4}, {-24, 10, -20}, {16, 23, 20} };<br>    &#x2F;&#x2F; 定义最优部分美感和数组，设定递推初值<br>    int best_partial[V + 1][F + 1] &#x3D; { {0} };<br>    &#x2F;&#x2F; 定义记录是否插花的数组<br>    int best_put[V + 1][F + 1] &#x3D; { {0} };<br>    &#x2F;&#x2F; 按m个花瓶插n朵花递推<br>    for (int m &#x3D; 1; m &lt;&#x3D; V; m++)<br>        for (int n &#x3D; 1; n &lt;&#x3D; m &amp;&amp; n &lt;&#x3D; F; n++)<br>        {<br>            &#x2F;&#x2F; 新花瓶插花<br>            best_partial[m][n] &#x3D; best_partial[m - 1][n - 1] + beauty[m - 1][n - 1];<br>            best_put[m][n] &#x3D; best_put[m - 1][n - 1] + (1 &lt;&lt; (m - 1));<br>            if (n &lt; m &amp;&amp; best_partial[m][n] &lt; best_partial[m - 1][n]) &#x2F;&#x2F; 新花瓶不插花更优<br>            {<br>                best_partial[m][n] &#x3D; best_partial[m - 1][n];<br>                best_put[m][n] &#x3D; best_put[m - 1][n];<br>            }<br>        }<br>    &#x2F;&#x2F; 输出答案<br>    cout &lt;&lt; “最大美感得分和：” &lt;&lt; best_partial[V][F] &lt;&lt; endl;<br>    cout &lt;&lt; “插花方法：”;<br>    int best_binary[V] &#x3D; { 0 };<br>    ToBinary(best_put[V][F], best_binary);<br>    for (int vase &#x3D; 0, flower &#x3D; 1; vase &lt; V; vase++)<br>        if (best_binary[vase] &#x3D;&#x3D; 1)<br>        {<br>            cout &lt;&lt; flower;<br>            flower++;<br>        }<br>        else<br>            cout &lt;&lt; 0;<br>    return 0;<br>}<br>第六周“最长公共子序列”的C++参考程序<br>&#x2F;&#x2F; 最长公共子序列，动态规划<br>#include <iostream><br>#include <cstring><br>using namespace std;<br>const int M &#x3D; 100;<br>const int N &#x3D; 100;<br>int main()<br>{<br>    char A[] &#x3D; “abcbdacb”;<br>    char B[] &#x3D; “bdcab”;<br>    int lcs[M][N]; &#x2F;&#x2F; M、N足够大<br>    int decision[M][N];<br>    enum<br>    {<br>        I_J, &#x2F;&#x2F; 1 + lcs[i+1][j+1]<br>        I_1, &#x2F;&#x2F; lcs[i+1][j]<br>        J_1 &#x2F;&#x2F; lcs[i][j+1]<br>    };<br>    int m &#x3D; strlen(A);<br>    int n &#x3D; strlen(B);<br>    &#x2F;&#x2F; 设定递推初值<br>    for (int j &#x3D; 0; j &lt; n + 1; j++)<br>        lcs[m][j] &#x3D; 0; &#x2F;&#x2F; lcs[m][?]&#x3D;0<br>    for (int i &#x3D; 0; i &lt; m + 1; i++)<br>        lcs[i][n] &#x3D; 0; &#x2F;&#x2F; lcs[?][n]&#x3D;0<br>    &#x2F;&#x2F; 递推<br>    for (int i &#x3D; m - 1; i &gt;&#x3D; 0; i–)<br>        for (int j &#x3D; n - 1; j &gt;&#x3D; 0; j–)<br>            if (A[i] &#x3D;&#x3D; B[j])<br>            {<br>                lcs[i][j] &#x3D; 1 + lcs[i + 1][j + 1];<br>                decision[i][j] &#x3D; I_J;<br>            }<br>            else if (lcs[i][j + 1] &lt; lcs[i + 1][j])<br>            {<br>                lcs[i][j] &#x3D; lcs[i + 1][j];<br>                decision[i][j] &#x3D; I_1;<br>            }<br>            else<br>            {<br>                lcs[i][j] &#x3D; lcs[i][j + 1];<br>                decision[i][j] &#x3D; J_1;<br>            }<br>    &#x2F;&#x2F; 输出<br>    for (int i &#x3D; 0, j &#x3D; 0; i &lt; m &amp;&amp; j &lt; n;)<br>        switch (decision[i][j])<br>        {<br>        case I_J:<br>            cout &lt;&lt; A[i];<br>            i++;<br>            j++;<br>            break;<br>        case I_1:<br>            i++;<br>            break;<br>        case J_1:<br>            j++;<br>            break;<br>        }<br>    return 0;<br>}</p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<pre class="line-numbers language-thanks" data-language="thanks"><code class="language-thanks">
-start
-
-https:&#x2F;&#x2F;github.com&#x2F;blinkfox
-https:&#x2F;&#x2F;fuguigui.github.io&#x2F;hexo2&#x2F;
-https:&#x2F;&#x2F;github.com&#x2F;blinkfox&#x2F;hexo-theme-matery
-https:&#x2F;&#x2F;theme-next.iissnan.com&#x2F;theme-settings.html
-https:&#x2F;&#x2F;mumaxu.github.io&#x2F;2018&#x2F;12&#x2F;09&#x2F;GitHub-Hexo-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2&#x2F;
-https:&#x2F;&#x2F;fanyfull.github.io&#x2F;2021&#x2F;10&#x2F;16&#x2F;Github-Hexo-%E7%9C%9F-%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA-GitHub-%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2&#x2F;#%E6%90%AD%E5%BB%BA-gihub-%E5%8D%9A%E5%AE%A2
-
-code background color
-
-https:&#x2F;&#x2F;novnan.github.io&#x2F;Hexo&#x2F;update_hexo&#x2F;
-https:&#x2F;&#x2F;blog.csdn.net&#x2F;dm900work&#x2F;article&#x2F;details&#x2F;121331265
-https:&#x2F;&#x2F;zhaoxin311.github.io&#x2F;2021&#x2F;10&#x2F;21&#x2F;hexo-prism-plugin&#x2F;
-https:&#x2F;&#x2F;blog.csdn.net&#x2F;Withdraw_end&#x2F;article&#x2F;details&#x2F;120645255
-https:&#x2F;&#x2F;github.com&#x2F;ele828&#x2F;hexo-prism-plugin&#x2F;blob&#x2F;master&#x2F;README.md
-https:&#x2F;&#x2F;github.com&#x2F;blinkfox&#x2F;hexo-theme-matery&#x2F;blob&#x2F;develop&#x2F;_config.yml
-
-title front
-
-https:&#x2F;&#x2F;fonts.google.com&#x2F;selection&#x2F;embed
-https:&#x2F;&#x2F;cloud.tencent.com&#x2F;developer&#x2F;article&#x2F;1622400
-https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_46296826&#x2F;article&#x2F;details&#x2F;115350456
-
-tag or others - a blank
-
-https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;348131730
-https:&#x2F;&#x2F;fuguigui.github.io&#x2F;categories&#x2F;
-
-https:&#x2F;&#x2F;github.com&#x2F;blinkfox&#x2F;hexo-theme-matery&#x2F;issues&#x2F;503
-https:&#x2F;&#x2F;msmkls.github.io&#x2F;posts&#x2F;870f2d70.html
-https:&#x2F;&#x2F;crazyyuchi.github.io&#x2F;2022&#x2F;05&#x2F;03&#x2F;hexo-bo-ke-zhong-yu-luan-ma-jie-jue-fang-fa&#x2F;
-# I didn&#39;t use the above one.
-# I just uninstall the old hexo-prism-plugin and use natural prism.
-# I think it will be a good idea.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -493,7 +460,7 @@ https:&#x2F;&#x2F;crazyyuchi.github.io&#x2F;2022&#x2F;05&#x2F;03&#x2F;hexo-bo-ke
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://geedawn.github.io/2024/11/06/hello-world/">http://geedawn.github.io/2024/11/06/hello-world/</a>
+                    <a href="http://geedawn.github.io/2024/11/18/Basic-of-Program-Design-%E2%85%A3/">http://geedawn.github.io/2024/11/18/Basic-of-Program-Design-%E2%85%A3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -530,11 +497,7 @@ https:&#x2F;&#x2F;crazyyuchi.github.io&#x2F;2022&#x2F;05&#x2F;03&#x2F;hexo-bo-ke
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Beginner/">
-                                    <span class="chip bg-color">Beginner</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -578,17 +541,18 @@ https:&#x2F;&#x2F;crazyyuchi.github.io&#x2F;2022&#x2F;05&#x2F;03&#x2F;hexo-bo-ke
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2024/11/08/Basic-of-Program-Design-%E2%85%A0/">
+                <a href="/2024/11/18/Basic-of-Program-Design-%E2%85%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Basic of Program Design Ⅰ">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Basic of Program Design Ⅳ">
                         
-                        <span class="card-title">Basic of Program Design Ⅰ</span>
+                        <span class="card-title">Basic of Program Design Ⅳ</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -598,9 +562,47 @@ https:&#x2F;&#x2F;crazyyuchi.github.io&#x2F;2022&#x2F;05&#x2F;03&#x2F;hexo-bo-ke
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-11-08
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            McGee
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/11/16/Basic-of-Program-Design-%E2%85%A2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Basic of Program Design Ⅲ">
+                        
+                        <span class="card-title">Basic of Program Design Ⅲ</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -622,56 +624,6 @@ https:&#x2F;&#x2F;crazyyuchi.github.io&#x2F;2022&#x2F;05&#x2F;03&#x2F;hexo-bo-ke
                     
                     <a href="/tags/Tsinghua/">
                         <span class="chip bg-color">Tsinghua</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/11/06/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-11-06
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Diary/" class="post-category">
-                                    Diary
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Beginner/">
-                        <span class="chip bg-color">Beginner</span>
                     </a>
                     
                 </div>
