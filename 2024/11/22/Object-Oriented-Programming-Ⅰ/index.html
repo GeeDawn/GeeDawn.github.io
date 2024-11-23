@@ -433,9 +433,54 @@ Beggars cannot be choosers.A bird in the hand is worth two in the bush.A man may
 g++ <span class="token parameter variable">-c</span> ex1.cpp
 g++ <span class="token parameter variable">-o</span> ex1.out ex1.o
 // Mac的指令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="先导知识-源程序拆分"><a href="#先导知识-源程序拆分" class="headerlink" title="先导知识 源程序拆分"></a>先导知识 源程序拆分</h4><pre><code class="cpp">
-</code></pre>
+<h3 id="先导知识－－源程序拆分"><a href="#先导知识－－源程序拆分" class="headerlink" title="先导知识－－源程序拆分"></a>先导知识－－源程序拆分</h3><h4 id="使用头文件分离声明与定义"><a href="#使用头文件分离声明与定义" class="headerlink" title="使用头文件分离声明与定义"></a>使用头文件分离声明与定义</h4><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// //func.h</span>
+<span class="token comment">// int ADD(int a, int b);</span>
+<span class="token comment">//func.h    //防止重复包含导致的编译错误</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">FUNC_H</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">FUNC_H</span></span>
+<span class="token keyword">int</span> <span class="token function">ADD</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+<span class="token comment">//func.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"func.h"</span></span>
+<span class="token keyword">int</span> <span class="token function">ADD</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>	<span class="token keyword">return</span> a <span class="token operator">+</span> b<span class="token punctuation">;</span>   <span class="token punctuation">&#125;</span>
+<span class="token comment">//main.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;cstdio></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"fun.h"</span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span><span class="token operator">*</span> argv<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>argc <span class="token operator">!=</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Usage: "</span> <span class="token operator">&lt;&lt;</span> argv<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" op1 op2"</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+		<span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
+	a <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	b <span class="token operator">=</span> <span class="token function">atoi</span><span class="token punctuation">(</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token function">ADD</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> std<span class="token double-colon punctuation">::</span>endl<span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="多个源文件的编译链接"><a href="#多个源文件的编译链接" class="headerlink" title="多个源文件的编译链接"></a>多个源文件的编译链接</h4><blockquote>
+<p><em><strong>Thanks the new world, thanks the best time. We donot need to do it.</strong></em></p>
+</blockquote>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token operator">-</span> 使用控制台窗口的命令行
+c1 <span class="token operator">-</span>GX ex51<span class="token punctuation">.</span>cpp ex52<span class="token punctuation">.</span>cpp <span class="token operator">-</span>o ex5<span class="token punctuation">.</span>exe
+<span class="token operator">-</span> 使用集成开发环境IDE
+添加文件到工程
+<span class="token operator">-</span> 使用MAKE工具
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token expression">Xu Mingxing @ <span class="token number">20070525</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span> <span class="token expression">C<span class="token operator">++</span> Course <span class="token keyword">for</span> THU2006</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span>
+<span class="token directive keyword">all</span><span class="token expression"><span class="token operator">:</span> main<span class="token punctuation">.</span>exe test<span class="token punctuation">.</span>exe</span></span>
 
+main<span class="token punctuation">.</span>exe<span class="token operator">:</span> main<span class="token punctuation">.</span>cpp student<span class="token punctuation">.</span>cpp
+    g<span class="token operator">++</span> <span class="token operator">-</span>o main<span class="token punctuation">.</span>exe main<span class="token punctuation">.</span>cpp student<span class="token punctuation">.</span>cpp
+
+test<span class="token punctuation">.</span>exe<span class="token operator">:</span> student<span class="token punctuation">.</span>cpp student_test<span class="token punctuation">.</span>cpp
+    g<span class="token operator">++</span> <span class="token operator">-</span>o test<span class="token punctuation">.</span>exe student_test<span class="token punctuation">.</span>cpp student<span class="token punctuation">.</span>cpp
+
+clean<span class="token operator">:</span> 
+    del <span class="token operator">*</span><span class="token punctuation">.</span>obj <span class="token operator">*</span><span class="token punctuation">.</span>exe
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -609,13 +654,13 @@ g++ <span class="token parameter variable">-o</span> ex1.out ex1.o
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/11/21/Basic-of-Program-Design-%E2%85%A4/">
+                <a href="/2024/11/21/Basic-of-Program-Design-%E2%85%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Basic of Program Design Ⅴ">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Basic of Program Design Ⅵ">
                         
-                        <span class="card-title">Basic of Program Design Ⅴ</span>
+                        <span class="card-title">Basic of Program Design Ⅵ</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
